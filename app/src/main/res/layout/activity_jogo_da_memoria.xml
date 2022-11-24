@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#046E9E"
+    tools:context=".JogoDaMemoria.JogoDaMemoria">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="387dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:foregroundGravity="center"
+            app:srcCompat="@drawable/logo_jogo_da_memoria" />
+
+        <Button
+            android:id="@+id/btnJogarMemory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="@color/green"
+            android:foregroundGravity="center"
+            android:text="@string/jogar" />
+
+        <Button
+            android:id="@+id/btnRankingMemory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="@color/yellow"
+            android:foregroundGravity="center"
+            android:text="@string/ranking" />
+
+        <Button
+            android:id="@+id/btnVoltarMemory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="@color/red"
+            android:foregroundGravity="center"
+            android:text="@string/voltar" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
