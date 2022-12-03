@@ -12,6 +12,7 @@ import br.com.projetointegrador.jogos.R;
 
 public class JogoDaMemoria extends AppCompatActivity implements View.OnClickListener {
     Button btnVoltarMemory;
+    Button btnJogarMemory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +21,17 @@ public class JogoDaMemoria extends AppCompatActivity implements View.OnClickList
 
         btnVoltarMemory = findViewById(R.id.btnVoltarMemory);
         btnVoltarMemory.setOnClickListener(this);
+        btnJogarMemory = findViewById(R.id.btnJogarMemory);
+        btnJogarMemory.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if(view == btnVoltarMemory){
+        if(view == btnJogarMemory){
+            Intent jogar = new Intent(this, Tela2x2.class);
+            startActivity(jogar);
+        }
+        else if(view == btnVoltarMemory){
             Intent telaPrincipal = new Intent(this, MainActivity.class);
             startActivity(telaPrincipal);
         }

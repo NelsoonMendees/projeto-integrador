@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="#046E9E"
-    tools:context=".JogoDaMemoria.Tela2x2"
+    tools:context=".JogoDaMemoria.Tela3x2"
     tools:layout_editor_absoluteX="10dp"
     tools:layout_editor_absoluteY="-50dp">
 
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="0"
+                android:text="120"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
@@ -130,7 +130,7 @@
 
 
         <include
-            layout="@layout/fase_2x2"
+            layout="@layout/fase_3x2"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

@@ -11,4 +11,8 @@
     <color name="green">#078A19</color>
     <color name="red">#7C0808</color>
     <color name="yellow">#B58304</color>
+
+    <color name="amarelo">#ffbf00</color>
+    <color name="background">#046E9E</color>
+    <color name="cards">#3F51B5</color>
 </resources>

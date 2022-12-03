@@ -3,4 +3,9 @@
     <string name="jogar">Jogar</string>
     <string name="ranking">Ranking</string>
     <string name="voltar">Voltar</string>
+    <string name="pontos">Pontos:</string>
+    <string name="tempo">Tempo:</string>
+    <string name="recomecar">Recomeçar</string>
+    <string name="sair">Sair</string>
+
 </resources>
