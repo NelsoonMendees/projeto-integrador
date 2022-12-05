@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/win"
+    android:backgroundTint="@color/background"
     android:orientation="vertical"
     android:weightSum="3">
 
@@ -11,22 +12,92 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@color/background"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="4">
 
         <ImageView
-            android:id="@+id/imgBt3x2_L1xC1"
+            android:id="@+id/imgBt3x4_L1xC1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
             android:layout_weight="1"
             android:background="@color/cards"
             android:scaleType="fitCenter"
-
             app:srcCompat="@drawable/star" />
 
         <ImageView
-            android:id="@+id/imgBt3x2_L1xC2"
+            android:id="@+id/imgBt3x4_L1xC2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/cards"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/imgBt3x4_L1xC3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/cards"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/imgBt3x4_L1xC4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/cards"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/star" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/background"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <ImageView
+            android:id="@+id/imgBt3x4_L2xC1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/cards"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/imgBt3x4_L2xC2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/cards"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/imgBt3x4_L2xC3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/cards"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/imgBt3x4_L2xC4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
@@ -40,11 +111,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@color/background"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="4">
 
         <ImageView
-            android:id="@+id/imgBt3x2_L2xC1"
+            android:id="@+id/imgBt3x4_L3xC1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
@@ -54,25 +126,7 @@
             app:srcCompat="@drawable/star" />
 
         <ImageView
-            android:id="@+id/imgBt3x2_L2xC2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="@color/cards"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/star" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-        <ImageView
-            android:id="@+id/imgBt3x2_L3xC1"
+            android:id="@+id/imgBt3x4_L3xC2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
@@ -82,7 +136,17 @@
             app:srcCompat="@drawable/star" />
 
         <ImageView
-            android:id="@+id/imgBt3x2_L3xC2"
+            android:id="@+id/imgBt3x4_L3xC3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/cards"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/star" />
+
+        <ImageView
+            android:id="@+id/imgBt3x4_L3xC4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"

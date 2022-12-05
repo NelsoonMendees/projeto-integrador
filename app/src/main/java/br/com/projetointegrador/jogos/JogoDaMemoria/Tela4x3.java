@@ -19,42 +19,45 @@ import java.util.TimerTask;
 
 import br.com.projetointegrador.jogos.R;
 
-public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
+public class Tela4x3 extends AppCompatActivity implements View.OnClickListener {
 
     private static final String dadosApp = "DadosJogo";
     private TextView txtPontos, txtTempo;
-    private ImageView L1xC1, L1xC2;
-    private ImageView L2xC1, L2xC2;
-    private ImageView L3xC1, L3xC2;
+    private ImageView L1xC1, L1xC2, L1xC3;
+    private ImageView L2xC1, L2xC2, L2xC3;
+    private ImageView L3xC1, L3xC2, L3xC3;
+    private ImageView L4xC1, L4xC2, L4xC3;
     private Button btnSair, btnRestart;
 
     private Timer tempo;
     private int contaTempo = 0;
     private int clickBomba = 0;
-    private int duasImagens1 = 0;
-    private int duasImagens2 = 0;
+    private int duasImagens1 = 0, duasImagens2 = 0;
+    private int duasImagens3 = 0, duasImagens4 = 0;
+    private int duasImagens5 = 0, duasImagens6 = 0;
 
 
-    Integer[] posicaoImg = {101, 102, 103, 201, 202, 203};
+    Integer[] posicaoImg = {101, 102, 103, 104, 105, 106, 201, 202, 203, 204, 205, 206};
 
     int imgJogo1, imgJogo2, imgJogo3, imgJogo4, imgJogo5, imgJogo6;
+    int imgJogo7, imgJogo8, imgJogo9, imgJogo10, imgJogo11, imgJogo12;
 
     int imgEscolha1, imgEscolha2;
 
     int selImg1, selImg2;
     int img = 1;
-    int pontos = 2;
+    int pontos = 11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela3x2);
+        setContentView(R.layout.activity_tela4x3);
 
         iniciar();
     }
 
     private void salvarPontos() {
-        //Salva os dados na memoria do usuario.
+        //Salva os dados na memoria do telefone do usuario.
         SharedPreferences arquivos = getSharedPreferences(dadosApp, 0);
 
         if (arquivos.contains("pontos")) {
@@ -85,34 +88,67 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
         btnRestart.setOnClickListener(this);
 
         //Linha 1
-        L1xC1 = findViewById(R.id.imgBt3x2_L1xC1);
+        L1xC1 = findViewById(R.id.imgBt4x3_L1xC1);
         L1xC1.setOnClickListener(this);
-        L1xC2 = findViewById(R.id.imgBt3x2_L1xC2);
+
+        L1xC2 = findViewById(R.id.imgBt4x3_L1xC2);
         L1xC2.setOnClickListener(this);
 
+        L1xC3 = findViewById(R.id.imgBt4x3_L1xC3);
+        L1xC3.setOnClickListener(this);
+
         //Linha 2
-        L2xC1 = findViewById(R.id.imgBt3x2_L2xC1);
+        L2xC1 = findViewById(R.id.imgBt4x3_L2xC1);
         L2xC1.setOnClickListener(this);
-        L2xC2 = findViewById(R.id.imgBt3x2_L2xC2);
+
+        L2xC2 = findViewById(R.id.imgBt4x3_L2xC2);
         L2xC2.setOnClickListener(this);
 
+        L2xC3 = findViewById(R.id.imgBt4x3_L2xC3);
+        L2xC3.setOnClickListener(this);
+
         //Linha 3
-        L3xC1 = findViewById(R.id.imgBt3x2_L3xC1);
+        L3xC1 = findViewById(R.id.imgBt4x3_L3xC1);
         L3xC1.setOnClickListener(this);
-        L3xC2 = findViewById(R.id.imgBt3x2_L3xC2);
+
+        L3xC2 = findViewById(R.id.imgBt4x3_L3xC2);
         L3xC2.setOnClickListener(this);
 
-        contaTempo = 60;
+        L3xC3 = findViewById(R.id.imgBt4x3_L3xC3);
+        L3xC3.setOnClickListener(this);
+
+        //Linha 4
+        L4xC1 = findViewById(R.id.imgBt4x3_L4xC1);
+        L4xC1.setOnClickListener(this);
+
+        L4xC2 = findViewById(R.id.imgBt4x3_L4xC2);
+        L4xC2.setOnClickListener(this);
+
+        L4xC3 = findViewById(R.id.imgBt4x3_L4xC3);
+        L4xC3.setOnClickListener(this);
+
+
+        contaTempo = 90;
 
         iniciaCronometro();
 
         //Definindo ordem das imagens
         L1xC1.setTag("0");
         L1xC2.setTag("1");
-        L2xC1.setTag("2");
-        L2xC2.setTag("3");
-        L3xC1.setTag("4");
-        L3xC2.setTag("5");
+        L1xC3.setTag("2");
+
+        L2xC1.setTag("3");
+        L2xC2.setTag("4");
+        L2xC3.setTag("5");
+
+        L3xC1.setTag("6");
+        L3xC2.setTag("7");
+        L3xC3.setTag("8");
+
+        L4xC1.setTag("9");
+        L4xC2.setTag("10");
+        L4xC3.setTag("11");
+
 
         imagensJogo();
 
@@ -123,30 +159,55 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
         //Deixando as imagens visiveis
         L1xC1.setVisibility(View.VISIBLE);
         L1xC2.setVisibility(View.VISIBLE);
+        L1xC3.setVisibility(View.VISIBLE);
+
         L2xC1.setVisibility(View.VISIBLE);
         L2xC2.setVisibility(View.VISIBLE);
+        L2xC3.setVisibility(View.VISIBLE);
+
         L3xC1.setVisibility(View.VISIBLE);
         L3xC2.setVisibility(View.VISIBLE);
+        L3xC3.setVisibility(View.VISIBLE);
+
+        L4xC1.setVisibility(View.VISIBLE);
+        L4xC2.setVisibility(View.VISIBLE);
+        L4xC3.setVisibility(View.VISIBLE);
 
 
         //Alterar as imagens para a imagem padrao
         L1xC1.setImageResource(R.drawable.star);
         L1xC2.setImageResource(R.drawable.star);
+        L1xC3.setImageResource(R.drawable.star);
+
         L2xC1.setImageResource(R.drawable.star);
         L2xC2.setImageResource(R.drawable.star);
+        L2xC3.setImageResource(R.drawable.star);
+
         L3xC1.setImageResource(R.drawable.star);
         L3xC2.setImageResource(R.drawable.star);
+        L3xC3.setImageResource(R.drawable.star);
+
+        L4xC1.setImageResource(R.drawable.star);
+        L4xC2.setImageResource(R.drawable.star);
+        L4xC3.setImageResource(R.drawable.star);
+
     }
 
     private void imagensJogo() {
-        //101 - 103
-        imgJogo1 = R.drawable.duck;
+
+        imgJogo1 = R.drawable.eagle;
         imgJogo2 = R.drawable.bomb;
-        imgJogo3 = R.drawable.boar;
-        //201 - 203
-        imgJogo4 = R.drawable.duck;
-        imgJogo5 = R.drawable.bomb;
-        imgJogo6 = R.drawable.boar;
+        imgJogo3 = R.drawable.giraffe;
+        imgJogo4 = R.drawable.hamster;
+        imgJogo5 = R.drawable.kangaroo;
+        imgJogo6 = R.drawable.pigeon;
+
+        imgJogo7 = R.drawable.eagle;
+        imgJogo8 = R.drawable.bomb;
+        imgJogo9 = R.drawable.giraffe;
+        imgJogo10 = R.drawable.hamster;
+        imgJogo11 = R.drawable.kangaroo;
+        imgJogo12 = R.drawable.pigeon;
     }
 
     private void trocaImagem(ImageView imagem, int posicao) {
@@ -167,15 +228,30 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
         } else if (posicaoImg[posicao] == 103) {
             imagem.setImageResource(imgJogo3);
             clickBomba = 0;
-            duasImagens2++;
+            duasImagens3++;
+
+        } else if (posicaoImg[posicao] == 104) {
+            imagem.setImageResource(imgJogo4);
+            clickBomba = 0;
+            duasImagens4++;
+
+        } else if (posicaoImg[posicao] == 105) {
+            imagem.setImageResource(imgJogo5);
+            clickBomba = 0;
+            duasImagens5++;
+
+        } else if (posicaoImg[posicao] == 106) {
+            imagem.setImageResource(imgJogo6);
+            clickBomba = 0;
+            duasImagens6++;
 
         } else if (posicaoImg[posicao] == 201) {
-            imagem.setImageResource(imgJogo4);
+            imagem.setImageResource(imgJogo7);
             clickBomba = 0;
             duasImagens1++;
 
         } else if (posicaoImg[posicao] == 202) {
-            imagem.setImageResource(imgJogo5);
+            imagem.setImageResource(imgJogo8);
             clickBomba++;
 
             if (clickBomba == 2) {
@@ -184,9 +260,21 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
                 finish();
             }
         } else if (posicaoImg[posicao] == 203) {
-            imagem.setImageResource(imgJogo6);
+            imagem.setImageResource(imgJogo9);
             clickBomba = 0;
-            duasImagens2++;
+            duasImagens3++;
+        } else if (posicaoImg[posicao] == 204) {
+            imagem.setImageResource(imgJogo10);
+            clickBomba = 0;
+            duasImagens4++;
+        } else if (posicaoImg[posicao] == 205) {
+            imagem.setImageResource(imgJogo11);
+            clickBomba = 0;
+            duasImagens5++;
+        } else if (posicaoImg[posicao] == 206) {
+            imagem.setImageResource(imgJogo12);
+            clickBomba = 0;
+            duasImagens6++;
         }
 
         if (img == 1) {
@@ -223,10 +311,19 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
             //desabilitar todas as imagens
             L1xC1.setEnabled(false);
             L1xC2.setEnabled(false);
+            L1xC3.setEnabled(false);
+
             L2xC1.setEnabled(false);
             L2xC2.setEnabled(false);
+            L2xC3.setEnabled(false);
+
             L3xC1.setEnabled(false);
             L3xC2.setEnabled(false);
+            L3xC3.setEnabled(false);
+
+            L4xC1.setEnabled(false);
+            L4xC2.setEnabled(false);
+            L4xC3.setEnabled(false);
 
             //Desabilita os clicks por 1 segundo
             Handler handler = new Handler();
@@ -243,32 +340,82 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
         // Faz a validacao se as imagens sao iguais
         if (imgEscolha1 == imgEscolha2) {
 
+            //bloco de validaçao da primeira imagem selecionada
             if (selImg1 == 0) {
                 L1xC1.setVisibility(View.INVISIBLE);
+
             } else if (selImg1 == 1) {
                 L1xC2.setVisibility(View.INVISIBLE);
+
             } else if (selImg1 == 2) {
-                L2xC1.setVisibility(View.INVISIBLE);
+                L1xC3.setVisibility(View.INVISIBLE);
+
             } else if (selImg1 == 3) {
-                L2xC2.setVisibility(View.INVISIBLE);
+                L2xC1.setVisibility(View.INVISIBLE);
+
             } else if (selImg1 == 4) {
-                L3xC1.setVisibility(View.INVISIBLE);
+                L2xC2.setVisibility(View.INVISIBLE);
+
             } else if (selImg1 == 5) {
+                L2xC3.setVisibility(View.INVISIBLE);
+
+            } else if (selImg1 == 6) {
+                L3xC1.setVisibility(View.INVISIBLE);
+
+            } else if (selImg1 == 7) {
                 L3xC2.setVisibility(View.INVISIBLE);
+
+            } else if (selImg1 == 8) {
+                L3xC3.setVisibility(View.INVISIBLE);
+
+            } else if (selImg1 == 9) {
+                L4xC1.setVisibility(View.INVISIBLE);
+
+            } else if (selImg1 == 10) {
+                L4xC2.setVisibility(View.INVISIBLE);
+
+            } else if (selImg1 == 11) {
+                L4xC3.setVisibility(View.INVISIBLE);
+
             }
 
+            //bloco de validaçao da segunda imagen selecionada
             if (selImg2 == 0) {
                 L1xC1.setVisibility(View.INVISIBLE);
+
             } else if (selImg2 == 1) {
                 L1xC2.setVisibility(View.INVISIBLE);
+
             } else if (selImg2 == 2) {
-                L2xC1.setVisibility(View.INVISIBLE);
+                L1xC3.setVisibility(View.INVISIBLE);
+
             } else if (selImg2 == 3) {
-                L2xC2.setVisibility(View.INVISIBLE);
+                L2xC1.setVisibility(View.INVISIBLE);
+
             } else if (selImg2 == 4) {
-                L3xC1.setVisibility(View.INVISIBLE);
+                L2xC2.setVisibility(View.INVISIBLE);
+
             } else if (selImg2 == 5) {
+                L2xC3.setVisibility(View.INVISIBLE);
+
+            } else if (selImg2 == 6) {
+                L3xC1.setVisibility(View.INVISIBLE);
+
+            } else if (selImg2 == 7) {
                 L3xC2.setVisibility(View.INVISIBLE);
+
+            } else if (selImg2 == 8) {
+                L3xC3.setVisibility(View.INVISIBLE);
+
+            } else if (selImg2 == 9) {
+                L4xC1.setVisibility(View.INVISIBLE);
+
+            } else if (selImg2 == 10) {
+                L4xC2.setVisibility(View.INVISIBLE);
+
+            } else if (selImg2 == 11) {
+                L4xC3.setVisibility(View.INVISIBLE);
+
             }
 
             pontos++;
@@ -281,18 +428,37 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
 
             L1xC1.setImageResource(R.drawable.star);
             L1xC2.setImageResource(R.drawable.star);
+            L1xC3.setImageResource(R.drawable.star);
+
             L2xC1.setImageResource(R.drawable.star);
             L2xC2.setImageResource(R.drawable.star);
+            L2xC3.setImageResource(R.drawable.star);
+
             L3xC1.setImageResource(R.drawable.star);
             L3xC2.setImageResource(R.drawable.star);
+            L3xC3.setImageResource(R.drawable.star);
+
+            L4xC1.setImageResource(R.drawable.star);
+            L4xC2.setImageResource(R.drawable.star);
+            L4xC3.setImageResource(R.drawable.star);
+
         }
 
         L1xC1.setEnabled(true);
         L1xC2.setEnabled(true);
+        L1xC3.setEnabled(true);
+
         L2xC1.setEnabled(true);
         L2xC2.setEnabled(true);
+        L2xC3.setEnabled(true);
+
         L3xC1.setEnabled(true);
         L3xC2.setEnabled(true);
+        L3xC3.setEnabled(true);
+
+        L4xC1.setEnabled(true);
+        L4xC2.setEnabled(true);
+        L4xC3.setEnabled(true);
 
         validaFimDeJogo();
     }
@@ -304,18 +470,31 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
         if (duasImagens2 < 2)
             duasImagens2 = 0;
 
+        if (duasImagens3 < 2)
+            duasImagens3 = 0;
+
+        if (duasImagens4 < 2)
+            duasImagens4 = 0;
+
+        if (duasImagens5 < 2)
+            duasImagens5 = 0;
+
+        if (duasImagens6 < 2)
+            duasImagens6 = 0;
+
         clickBomba = 0;
     }
 
     private void validaFimDeJogo() {
-        if (duasImagens1 == 2 && duasImagens2 == 2) {
+        if (duasImagens1 == 2 && duasImagens3 == 2 && duasImagens4 == 2
+                && duasImagens5 == 2 && duasImagens6 == 2) {
 
             contaTempo = 0;
 
             tempo.cancel();
 
             //Se acertar todas as imagens troca de fase
-            Intent passaFase = new Intent(getApplication(), Tela3x4.class);
+            Intent passaFase = new Intent(getApplication(), Tela4x4.class);
             startActivity(passaFase);
             finish();
         }
@@ -334,7 +513,7 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
                             txtTempo.setText(String.valueOf(contaTempo));
                         } else {
                             tempo.cancel();
-                            Toast.makeText(Tela3x2.this, "SEU TEMPO ACABOU! TENTE NOVAMENTE", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplication(), "SEU TEMPO ACABOU! TENTE NOVAMENTE", Toast.LENGTH_LONG).show();
                             finish();
                         }
                     }
@@ -359,6 +538,10 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
             int posicao = Integer.parseInt((String) view.getTag());
             trocaImagem(L1xC2, posicao);
 
+        } else if (view == L1xC3) {
+            int posicao = Integer.parseInt((String) view.getTag());
+            trocaImagem(L1xC3, posicao);
+
         } else if (view == L2xC1) {
             int posicao = Integer.parseInt((String) view.getTag());
             trocaImagem(L2xC1, posicao);
@@ -367,6 +550,10 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
             int posicao = Integer.parseInt((String) view.getTag());
             trocaImagem(L2xC2, posicao);
 
+        } else if (view == L2xC3) {
+            int posicao = Integer.parseInt((String) view.getTag());
+            trocaImagem(L2xC3, posicao);
+
         } else if (view == L3xC1) {
             int posicao = Integer.parseInt((String) view.getTag());
             trocaImagem(L3xC1, posicao);
@@ -374,6 +561,22 @@ public class Tela3x2 extends AppCompatActivity implements View.OnClickListener {
         } else if (view == L3xC2) {
             int posicao = Integer.parseInt((String) view.getTag());
             trocaImagem(L3xC2, posicao);
+
+        } else if (view == L3xC3) {
+            int posicao = Integer.parseInt((String) view.getTag());
+            trocaImagem(L3xC3, posicao);
+
+        } else if (view == L4xC1) {
+            int posicao = Integer.parseInt((String) view.getTag());
+            trocaImagem(L4xC1, posicao);
+
+        } else if (view == L4xC2) {
+            int posicao = Integer.parseInt((String) view.getTag());
+            trocaImagem(L4xC2, posicao);
+
+        } else if (view == L4xC3) {
+            int posicao = Integer.parseInt((String) view.getTag());
+            trocaImagem(L4xC3, posicao);
 
         } else if (view == btnSair) {
             Intent telaInicial = new Intent(this, JogoDaMemoria.class);

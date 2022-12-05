@@ -4,18 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="#046E9E"
-    tools:context=".MainActivity" >
+    android:foregroundGravity="center"
+    app:layout_anchorGravity="center"
+    tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="330dp"
-        android:layout_height="465dp"
+        android:layout_width="337dp"
+        android:layout_height="339dp"
+        android:foregroundGravity="center"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632">
 
         <ImageView
             android:id="@+id/imgMemory"
@@ -34,27 +39,9 @@
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
             android:backgroundTint="#078A19"
+            android:fontFamily="@font/bungee_inline"
             android:gravity="center"
-            android:text="@string/jogar" />
+            android:text="@string/entrar" />
 
-        <ImageView
-            android:id="@+id/imgAnagrama"
-            android:layout_width="match_parent"
-            android:layout_height="97dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/anagramaaa" />
-
-        <Button
-            android:id="@+id/btnJogarAnagrama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20sp"
-            android:layout_marginTop="15sp"
-            android:layout_marginRight="20sp"
-            android:layout_marginBottom="10sp"
-            android:backgroundTint="#078A19"
-            android:gravity="center"
-            android:text="@string/jogar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

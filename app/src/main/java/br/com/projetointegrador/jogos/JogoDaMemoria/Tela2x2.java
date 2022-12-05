@@ -3,6 +3,7 @@ package br.com.projetointegrador.jogos.JogoDaMemoria;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -20,10 +21,11 @@ import java.util.TimerTask;
 import br.com.projetointegrador.jogos.R;
 
 public class Tela2x2 extends AppCompatActivity implements View.OnClickListener {
-    TextView txtPontos, txtTempo;
-    ImageView L1xC1, L1xC2;
-    ImageView L2xC1, L2xC2;
-    Button btnSair, btnRestart;
+    private static final String dadosApp = "DadosJogo";
+    private TextView txtPontos, txtTempo;
+    private ImageView L1xC1, L1xC2;
+    private ImageView L2xC1, L2xC2;
+    private Button btnSair, btnRestart;
 
     private Timer tempo;
     private int contaTempo = 0;
@@ -47,6 +49,25 @@ public class Tela2x2 extends AppCompatActivity implements View.OnClickListener {
         iniciar();
     }
 
+    private void salvarPontos(Integer pontos) {
+        //Salva os dados na memoria do usuario.
+        SharedPreferences arquivos = getSharedPreferences(dadosApp, 0);
+
+        if (arquivos.contains("pontos")) {
+            SharedPreferences.Editor editor = arquivos.edit();
+            int qtdPontos = arquivos.getInt("pontos", 0);
+
+            if (pontos > qtdPontos) {
+                qtdPontos = pontos;
+
+                editor.putInt("pontos", qtdPontos);
+                editor.apply();
+            }
+            editor.putInt("pontos", qtdPontos);
+            editor.apply();
+        }
+    }
+
     private void iniciar() {
         txtPontos = findViewById(R.id.txtPontos);
         txtTempo = findViewById(R.id.txtTempo);
@@ -55,6 +76,7 @@ public class Tela2x2 extends AppCompatActivity implements View.OnClickListener {
         btnSair.setOnClickListener(this);
 
         btnRestart = findViewById(R.id.btnRestart);
+        btnRestart.setOnClickListener(this);
 
         //Linha 1
         L1xC1 = findViewById(R.id.imgBt2x2_L1xC1);
@@ -191,8 +213,10 @@ public class Tela2x2 extends AppCompatActivity implements View.OnClickListener {
                 L2xC2.setVisibility(View.INVISIBLE);
             }
 
-            pontos = pontos + 10;
+            pontos++;
             txtPontos.setText(String.valueOf(pontos));
+            salvarPontos(pontos);
+
         } else {
             L1xC1.setImageResource(R.drawable.star);
             L1xC2.setImageResource(R.drawable.star);
@@ -265,6 +289,12 @@ public class Tela2x2 extends AppCompatActivity implements View.OnClickListener {
         } else if (view == btnSair) {
             Intent telaInicial = new Intent(this, JogoDaMemoria.class);
             startActivity(telaInicial);
+        } else if (view == btnRestart) {
+            contaTempo = 0;
+            tempo.cancel();
+            pontos = 0;
+            txtPontos.setText(String.valueOf(pontos));
+            iniciar();
         }
 
     }

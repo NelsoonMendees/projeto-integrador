@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Jogos</string>
+    <string name="entrar">Entrar</string>
     <string name="jogar">Jogar</string>
     <string name="ranking">Ranking</string>
     <string name="voltar">Voltar</string>
@@ -7,5 +8,7 @@
     <string name="tempo">Tempo:</string>
     <string name="recomecar">Recomeçar</string>
     <string name="sair">Sair</string>
+    <string name="gameOver">Fim de Jogo!</string>
+    <string name="win">Você Ganhou!!</string>
 
 </resources>

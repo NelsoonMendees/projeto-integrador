@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="#046E9E"
-    tools:context=".JogoDaMemoria.Tela2x2"
+    tools:context=".JogoDaMemoria.Tela5x4"
     tools:layout_editor_absoluteX="10dp"
     tools:layout_editor_absoluteY="-50dp">
 
@@ -136,7 +136,7 @@
 
 
         <include
-            layout="@layout/fase_2x2"
+            layout="@layout/fase_5x4"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

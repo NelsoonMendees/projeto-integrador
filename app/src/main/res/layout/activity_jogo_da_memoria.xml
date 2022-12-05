@@ -24,6 +24,18 @@
             android:foregroundGravity="center"
             app:srcCompat="@drawable/logo_jogo_da_memoria" />
 
+        <TextView
+            android:id="@+id/txtPts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee_inline"
+            android:gravity="center"
+            android:text="Maior Pontuação: "
+            android:textAllCaps="true"
+            android:textColor="@color/amarelo"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/btnJogarMemory"
             android:layout_width="match_parent"
@@ -34,21 +46,9 @@
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
             android:backgroundTint="@color/green"
+            android:fontFamily="@font/bungee_inline"
             android:foregroundGravity="center"
             android:text="@string/jogar" />
-
-        <Button
-            android:id="@+id/btnRankingMemory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20sp"
-            android:layout_marginTop="15sp"
-            android:layout_marginRight="20sp"
-            android:layout_marginBottom="10sp"
-            android:backgroundTint="@color/yellow"
-            android:foregroundGravity="center"
-            android:text="@string/ranking" />
 
         <Button
             android:id="@+id/btnVoltarMemory"
@@ -60,6 +60,7 @@
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
             android:backgroundTint="@color/red"
+            android:fontFamily="@font/bungee_inline"
             android:foregroundGravity="center"
             android:text="@string/voltar" />
     </LinearLayout>
