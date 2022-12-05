@@ -46,7 +46,7 @@ public class Tela3x4 extends AppCompatActivity implements View.OnClickListener {
 
     int selImg1, selImg2;
     int img = 1;
-    int pontos = 5;
+    int pontos = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
